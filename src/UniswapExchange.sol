@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import {SafeMath} from "./SafeMath.sol";
 
-import {IERC20} from "./IERC20.sol";
+import {IERC20} from "./token/IERC20.sol";
 
 import {IUniswapFactory} from "./IUniswapFactory.sol";
 

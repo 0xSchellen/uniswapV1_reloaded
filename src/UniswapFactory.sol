@@ -3,7 +3,6 @@ pragma solidity ^0.8.17;
 
 import {UniswapExchange} from "./UniswapExchange.sol";
 
-
 contract UniswapFactory {
     event ExchangeLaunch(address indexed exchange, address indexed token);
 
