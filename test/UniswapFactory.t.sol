@@ -3,36 +3,45 @@ pragma solidity ^0.8.17;
 
 import {Test} from "forge-std/Test.sol";
 
+import {IUniswapFactory} from "../src/IUniswapFactory.sol";
+
 import {IERC20} from "../src/token/IERC20.sol";
 import {MyToken} from "../src/token/MyToken.sol";
 
-contract MyTokenTest is Test {
+contract UniswapFactoryTest is Test {
     address internal immutable self = address(this);
 
     // bytes internal constant ARITHMETIC_ERROR = abi.encodeWithSignature("Panic(uint256)", 0x11);
-    address tokenContractOwner = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
 
-    MyToken public token;
+    address deployer = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
+
+    address factoryContract = 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512;
+
+    address uniswapExchange = 0xCafac3dD18aC6c6e92c921884f9E4176737C052c;
+
+    address tokenContract = 0x5FbDB2315678afecb367f032d93F642f64180aa3; // Deployed MyToken(ERC20) address
+
+    IUniswapFactory public factory;
+
     IERC20 public tokenIERC20;
-
-    bytes32 constant PERMIT_TYPEHASH =
-        keccak256("Permit(address owner,address spender,uint256 amount,uint256 nonce,uint256 deadline)");
 
     function setUp() public virtual {
         string memory rpc_url = vm.envString("ANVIL_RPC_URL");
         vm.createSelectFork(rpc_url);
 
         // anvil deployed MyToken contract
-        token = MyToken(0x5FbDB2315678afecb367f032d93F642f64180aa3); 
-        tokenIERC20 = IERC20(0x5FbDB2315678afecb367f032d93F642f64180aa3); 
+        factory = IUniswapFactory(factoryContract); 
 
-        vm.startPrank(tokenContractOwner);
+        tokenIERC20 = IERC20(tokenContract); 
+
+        vm.startPrank(deployer);
     }
 
-    function testMint() public {
-        token.mint(tokenContractOwner, 1_000_000);
+    function testLaunchExchange() public {
+        factory.launchExchange(tokenContract);
 
-        assertEq(tokenIERC20.totalSupply(), 1_000_000);
-        assertEq(tokenIERC20.balanceOf(tokenContractOwner), 1_000_000);
+        assertEq(factory.getExchangeCount(), 1);
+        assertEq(factory.tokenToExchangeLookup(tokenContract), uniswapExchange);
+        assertEq(factory.exchangeToTokenLookup(uniswapExchange), tokenContract);
     }
 }

@@ -9,14 +9,10 @@ import {MyToken} from "../src/token/MyToken.sol";
 contract MyTokenTest is Test {
     address internal immutable self = address(this);
 
-    // bytes internal constant ARITHMETIC_ERROR = abi.encodeWithSignature("Panic(uint256)", 0x11);
     address tokenContractOwner = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
 
     MyToken public token;
     IERC20 public tokenIERC20;
-
-    bytes32 constant PERMIT_TYPEHASH =
-        keccak256("Permit(address owner,address spender,uint256 amount,uint256 nonce,uint256 deadline)");
 
     function setUp() public virtual {
         string memory rpc_url = vm.envString("ANVIL_RPC_URL");

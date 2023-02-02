@@ -12,7 +12,7 @@ import {MyToken} from "../src/token/MyToken.sol";
 // To deploy and verify our contract
 // forge script script/MyToken.s.sol:MyTokenScript --rpc-url $ANVIL_RPC_URL --broadcast --verify -vvvv
 
-// Deployed Contract Address: 0x5fbdb2315678afecb367f032d93f642f64180aa3
+// Deployed Contract Address: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 
 
 contract MyTokenScript is Script {

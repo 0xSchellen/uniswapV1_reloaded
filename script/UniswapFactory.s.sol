@@ -23,7 +23,7 @@ contract UniswapFactoryScript is Script {
         vm.startBroadcast(deployerPrivateKey);
 
         new UniswapFactory();
-        
+
         vm.stopBroadcast();
     }
 }
