@@ -42,32 +42,40 @@ $ git clone https://github.com/0xSchellen/uniswapV1_reloaded
 $ cd uniswapV1_reloaded
 ```
 
-2. Set env variables (in a bash terminal run:)
-
-```
-export ETHERSCAN_API_KEY=JZW5...8NPY  (put your etherscan api key here)
-export ANVIL_RPC_URL=http://127.0.0.1:8545
-export ANVIL_PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
-```
-
-3. Run anvil in a separate terminal
+2. Run anvil in a separate terminal
 
 ```
 anvil
 ```
 
-4. Deploy Token contract using forge create
+3. Return to the main terminal
+
+4. Create the .env file 
+
+```
+ETHERSCAN_API_KEY=JZW5...8NPY  (put your etherscan api key here)
+ANVIL_RPC_URL=http://127.0.0.1:8545
+ANVIL_PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+```
+
+5. Set environment variables
+
+```
+source .env
+```
+
+6. Deploy Token contract using forge create
 
 ```
 forge script script/UniswapFactory.s.sol:UniswapFactoryScript --rpc-url $ANVIL_RPC_URL --broadcast --verify -vvvv
 ```
 
-5. Deploy UniswapFactory contract using forge create
+7. Deploy UniswapFactory contract using forge create
 ```
 forge script script/UniswapFactory.s.sol:UniswapFactoryScript --rpc-url $ANVIL_RPC_URL --broadcast --verify -vvvv
 ```
 
-6. Run tests
+8. Run tests
 ```
 forge test --rpc-url $ANVIL_RPC_URL -vvvv
 ```
