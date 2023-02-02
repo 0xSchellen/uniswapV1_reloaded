@@ -4,7 +4,7 @@ This is a uniswapV1 update (study) of its original solidity code version.
 
 This study uses language sintax update for the solidity compiler version 0.8.17, Foundry deployment and test tools, and ERC20 Token code from OpenZeppelin.
 
-This is not a production ready version and is made only for educational and fun purposes!
+This is not a production ready version and it is made only for educational and fun purposes!
 
 Enjoy!
 
