@@ -1,25 +1,20 @@
-## uniswapV1 - reloaded
+## About this repo: uniswapV1 - reloaded
 
-https://docs.uniswap.org/contracts/v1/overview
+This is a uniswapV1 update of its original solidity code version using language sintax update for the solidity compiler version 0.8.17, Foundry deployment and test tools and ERC20 Token code from OpenZeppelin.
+
+This is not a production ready version and is made only for educational and fun purposes!
+
+## The original uniswapV1 code:
 
 Uniswap V1 is the first version of the protocol, launched in November 2018 at Devcon 4. Because of its permissionless nature, it will exist for as long as Ethereum does.
+https://docs.uniswap.org/contracts/v1/overview
 
-## About the code on this repo:
-
-This repo is based in an old deprecated version of uniswapV1 written in Solidity.
-
-In this repo we publish an updated version (using the Solidity 0.8.17 compiler version).
-
-This 
-
-Important Obs: The final version on uniswapV1 was written in vyper and can be found in:
-
+Important: The final version on uniswapV1 was written in vyper and can be found in:
 [https://github.com/Uniswap/v1-contracts](https://github.com/Uniswap/v1-contracts)
 
 
-
 ## V1 Features
-    
+
         Add support for any ERC20 token using the Uniswap factory
         Join liquidity pools to collect fees on ETH-ERC20 pairs
         Liquidity-sensitive automated pricing using constant product formula
@@ -68,4 +63,7 @@ forge script script/UniswapFactory.s.sol:UniswapFactoryScript --rpc-url $ANVIL_R
 forge script script/UniswapFactory.s.sol:UniswapFactoryScript --rpc-url $ANVIL_RPC_URL --broadcast --verify -vvvv
 ```
 
-
+6. Run tests
+```
+forge test --rpc-url $ANVIL_RPC_URL -vvvv
+```
