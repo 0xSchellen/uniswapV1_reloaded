@@ -5,7 +5,7 @@ import {SafeMath} from "./SafeMath.sol";
 
 import {IERC20} from "./token/IERC20.sol";
 
-import {IUniswapFactory} from "./IUniswapFactory.sol";
+import {UniswapFactoryInterface} from "./UniswapFactoryInterface.sol";
 
 contract UniswapExchange {
     using SafeMath for uint256;
@@ -28,7 +28,7 @@ contract UniswapExchange {
     address public factoryAddress;
     mapping(address => uint256) shares;
     IERC20 token;
-    IUniswapFactory factory;
+    UniswapFactoryInterface factory;
 
     /// MODIFIERS
     modifier exchangeInitialized() {
@@ -41,7 +41,7 @@ contract UniswapExchange {
         tokenAddress = _tokenAddress;
         factoryAddress = msg.sender;
         token = IERC20(tokenAddress);
-        factory = IUniswapFactory(factoryAddress);
+        factory = UniswapFactoryInterface(factoryAddress);
     }
 
     /// RECEIVE FUNCTION

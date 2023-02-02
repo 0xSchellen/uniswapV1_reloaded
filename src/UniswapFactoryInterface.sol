@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-interface IUniswapFactory {
+interface UniswapFactoryInterface {
     // address[] public tokenList;
     // mapping(address => address) tokenToExchange;
     // mapping(address => address) exchangeToToken;

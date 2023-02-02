@@ -1,20 +1,24 @@
-## About this repo: uniswapV1 - reloaded
+## uniswapV1 - reloaded
 
 This is a uniswapV1 update of its original solidity code version using language sintax update for the solidity compiler version 0.8.17, Foundry deployment and test tools and ERC20 Token code from OpenZeppelin.
 
 This is not a production ready version and is made only for educational and fun purposes!
+
+Enjoy!
 
 ## The original uniswapV1 code:
 
 Uniswap V1 is the first version of the protocol, launched in November 2018 at Devcon 4. Because of its permissionless nature, it will exist for as long as Ethereum does.
 https://docs.uniswap.org/contracts/v1/overview
 
+Important: This study is based on this repo:
+https://github.com/Uniswap/old-solidity-contracts
+
 Important: The final version on uniswapV1 was written in vyper and can be found in:
 [https://github.com/Uniswap/v1-contracts](https://github.com/Uniswap/v1-contracts)
 
 
-## V1 Features
-
+## V1 Features (extracted from original docs)
         Add support for any ERC20 token using the Uniswap factory
         Join liquidity pools to collect fees on ETH-ERC20 pairs
         Liquidity-sensitive automated pricing using constant product formula
@@ -27,7 +31,6 @@ Important: The final version on uniswapV1 was written in vyper and can be found 
         Partially verified smart contracts written in Vyper
         Mobile-optimized open source frontend implementation
         Funded through an Ethereum Foundation grant
-
 
 ## Installation:
 

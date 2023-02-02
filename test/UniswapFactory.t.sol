@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import {Test} from "forge-std/Test.sol";
 
-import {IUniswapFactory} from "../src/IUniswapFactory.sol";
+import {UniswapFactoryInterface} from "../src/UniswapFactoryInterface.sol";
 
 import {IERC20} from "../src/token/IERC20.sol";
 import {MyToken} from "../src/token/MyToken.sol";
@@ -21,7 +21,7 @@ contract UniswapFactoryTest is Test {
 
     address tokenContract = 0x5FbDB2315678afecb367f032d93F642f64180aa3; // Deployed MyToken(ERC20) address
 
-    IUniswapFactory public factory;
+    UniswapFactoryInterface public factory;
 
     IERC20 public tokenIERC20;
 
@@ -30,7 +30,7 @@ contract UniswapFactoryTest is Test {
         vm.createSelectFork(rpc_url);
 
         // anvil deployed MyToken contract
-        factory = IUniswapFactory(factoryContract); 
+        factory = UniswapFactoryInterface(factoryContract); 
 
         tokenIERC20 = IERC20(tokenContract); 
 
